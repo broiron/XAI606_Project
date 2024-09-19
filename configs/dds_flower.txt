@@ -1,0 +1,56 @@
+dataset_name = llff_latent_mask
+datadir = ./data/nerf_llff_data/flower
+feature_dir = ./data/nerf_llff_data/flower/latents
+basedir = ./log_flower/flower_ed
+expname = flower_ed
+downsample_train = 15.75
+ndc_ray = 0
+
+n_iters = 3000
+batch_size = 4096
+cal_feature = false
+feature_lambda = 1.0
+
+N_voxel_init = 64 # 64**3
+N_voxel_final = 150 # 150**3
+upsamp_list = [2000,3000,4000,5500]
+update_AlphaMask_list = [2500, 4000]
+
+N_vis = -1 # vis all testing images
+vis_every = 100
+
+
+n_lamb_sigma = [64,64,64]
+n_lamb_sh = [384,384,384]
+
+shadingMode = MLP_Fea_latent
+fea2denseAct = relu
+
+L1_weight_inital = 0.0
+L1_weight_rest = 0.0
+rm_weight_mask_thre = 1e-4
+device = 'cuda:0'
+ldm_device = 'cuda:0'
+ckpt = './log_flower/core_w_vae/flower/flower.th'
+svae_ckpt = './log_flower/core_w_vae/flower/flower_svae.th'
+no_ray_random = True
+mask_prompt = 'flower'
+
+save_freq = 5000
+
+TV_weight_density = 1.0
+TV_weight_app = 1.0
+sds_weight = 0.001
+im_recon_weight = 0.01
+
+render_test = 1
+
+threshold_rate = 0.3
+om_recon_weight = 100.0
+ref_prompt = 'flowers'
+target_prompt = 'popcorn flowers'
+
+mask_path = './data/nerf_llff_data/flower/prompts/flower/mask'
+mask_ckpt = './data/nerf_llff_data/flower/prompts/flower/mask'
+svae_ckpt = './log_flower/core_w_vae/flower/flower_svae.th'
+ckpt = './log_flower/core_w_vae/flower/flower.th'

@@ -1,0 +1,41 @@
+dataset_name = llff
+datadir = ./data/nerf_llff_data/face
+feature_dir = ./data/nerf_llff_data/face/latents
+basedir = ./log_face
+expname = face
+
+downsample_train = 15.75
+ndc_ray = 0
+
+n_iters = 200000
+batch_size = 4096
+cal_feature = false
+feature_lambda = 1.0
+
+N_voxel_init = 64 # 64**3
+N_voxel_final = 150 # 150**3
+upsamp_list = [2000,3000,4000,5500]
+update_AlphaMask_list = [2500, 4000]
+
+device = 'cuda:1'
+N_vis = -1 # vis all testing images
+vis_every = 10000
+
+render_test = 1
+
+n_lamb_sigma = [64,64,64]
+n_lamb_sh = [384,384,384]
+
+shadingMode = MLP_Fea_latent
+fea2denseAct = relu
+
+L1_weight_inital = 0.0
+L1_weight_rest = 0.0
+rm_weight_mask_thre = 1e-4
+
+no_ray_random = true
+save_freq = 10000
+
+
+
+
